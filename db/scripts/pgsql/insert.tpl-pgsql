@@ -1,0 +1,24 @@
+
+{% set dic_data = data_in.data %}
+{% set li_table = data_in.order %}
+
+{% for table in li_table %}
+    
+    {% for row in dic_data[table] %}
+
+        {% set li_row = row.items() %}
+
+INSERT INTO {{table}}(
+        {% for col, val in li_row %}
+    {{col}}{{ "," if not loop.last }}
+        {% endfor %}
+    )
+    VALUES (
+        {% for col, val in li_row %}
+        {% if val is number %}{{val}}{% else %}'{{val}}'{% endif %}{{ "," if not loop.last }}
+        {% endfor %}
+    );
+
+    {% endfor %}
+{% endfor %}
+
