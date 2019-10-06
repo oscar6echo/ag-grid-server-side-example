@@ -1,5 +1,4 @@
-# ag-Grid Server-Side GraphQL Example
-## With PostGreSql
+# ag-Grid Server-Side GraphQL+PostGreSql Example
 
 For reference see agg-grid doc: http://ag-grid.com/graphql-server-side-operations/
 
